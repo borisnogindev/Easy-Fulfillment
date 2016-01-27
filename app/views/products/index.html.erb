@@ -1,0 +1,44 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+    rel="stylesheet" type="text/css">
+  </head>
+  
+  <body>
+    <div class="section">
+      <div class="container">
+      <% @products.each do |product| %>
+        <div class="row">
+          <div class="col-md-2">
+            <img src= <%= product.image %> height="128" width="128"
+            class="img-responsive">
+            <a href='https://<%="#{@shop_session.url}/admin/products/#{product.shopify_id}"%>' target="_blank"> <%= product.name %> </a>
+            <p></p>
+            <p></p>
+          </div>
+          <div class="col-md-6">
+            <%= form_for product do |f| %>
+              <ul>
+                <% product.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+              <%= f.label :ebay_url %>:
+              <%= f.text_field :ebay_url %>
+              <%= f.submit :Submit, class: "btn btn-default" %>
+            <% end %> 
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </body>
+
+</html>

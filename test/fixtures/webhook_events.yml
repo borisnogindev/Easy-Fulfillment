@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_type: MyString
+  description: MyText
+  product_id: 1
+  logical_delete: false
+  created_at: 2015-07-15 16:07:32
+  updated_at: 2015-07-15 16:07:32
+  url: MyText
+
+two:
+  event_type: MyString
+  description: MyText
+  product_id: 1
+  logical_delete: false
+  created_at: 2015-07-15 16:07:32
+  updated_at: 2015-07-15 16:07:32
+  url: MyText

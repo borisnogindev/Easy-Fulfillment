@@ -1,0 +1,33 @@
+development:
+  compatability_level: 681
+  finding_ver: 1.8.0
+  site_id: 0
+
+  dev_id:  d09913ab-92c4-4572-84eb-04451aff881b
+  app_id:  National-1f88-4e12-a1ca-32c11867a9ca
+  cert_id: e7d1e825-081d-4f36-bdb0-344bafb5d4e6
+
+  server_uri:   https://api.sandbox.ebay.com/ws/api.dll
+  shopping_uri: http://open.api.sandbox.ebay.com/shopping
+  finding_uri:  http://svcs.sandbox.ebay.com/services/search/FindingService/v1
+  
+  auth_token: > 
+    AgAAAA**AQAAAA**aAAAAA**eGnBVQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4
+    GhDZmEqQmdj6x9nY+seQ**SIcDAA**AAMAAA**Jnl+RmIsFB/fCstsS0kntE/1Ehut
+    VtmgiHyu18sftvui3+DtJP62EZJ59A+W5yQujeEQE89WixPuKDhyUk9OOq7WRxNunL
+    cArW2nVcTVCW+rmJF1ejErDGu80DDREo5QnpLv/piVT5+ZkbQuTYBzGcQrhTHNjUfM
+    rsNhUsyYu56H1L7qJbis7QssBjWFzq3/jY05pUX6ebqPH/egfVDryYZqXJOXIIUeNu
+    lHH+rWvhjrrujKJkMZ72iST0GSD/NbjAkK41Pgl6jp9Z1wFBiFSRCShAyAz8QGVeW8
+    gW8bnjIOs8Dd1eqzCEC1wZbfgriZRUkEmWahiVrEhU6P1J2keWNTH3e5aUEF5pAJA3
+    4qHTOn7gBQm3Vxjp6bpvDXjNPV0oisA2RQqUt6hqFROj5lKykeEaWu/O96h7taNzsV
+    BrScV1cD5ydQIIuokgPXUkFxe/asBQxIP15+H/MV07Jpt3IwlVe8HuciFfaOu8TzhX
+    Nzo7og30TZTCdM51+v1UJCEiMO4u/1nqkvnR3BDE1KiaPXmTTnsVnc9pUliCC0kiJe
+    tTZtGpLr9EAiwJFmEvhYQVVjV5YaavLcZVc6i+Bk3n4LhHeLlN1wWGwwz+RRMInFWU
+    oFNKrNf5vcCDgUWCJOxWHT1ExEGPEgjyo3LdXuMqMjODNhwDeZ1SEEbEt2Lmz/CGdR
+    f8Ysj2lSRwmiPFPRQDIsGZbq6QhfQ8/tqLw8otu9zyTp0MVBFzMCH01M2NS2IQVB4N
+    31FafXsocAHWwK
+  
+  login_url: https://signin.sandbox.ebay.com/ws/eBayISAPI.dll
+  feedback_url: http://feedback.sandbox.ebay.com/ws/eBayISAPI.dll
+  
+  runame: National_Parks_-National-1f88-4-pgcdo

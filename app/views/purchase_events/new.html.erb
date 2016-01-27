@@ -1,0 +1,8 @@
+<div class="col-lg-5" style="margin: 0 auto; float:none;">
+    <h1>Continue with Purchase?</h1>
+    <% ebay_url = "https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&RuName=#{Ebayr.ru_name}&SessID=#{@ses}"%>
+
+    </br>
+    <%= link_to "Confirm", ebay_url, class: "btn btn-lg btn-primary", :target => "_blank" %>
+    <%= link_to "Cancel", root_path, class: "btn btn-lg btn-primary" %> 
+</div>

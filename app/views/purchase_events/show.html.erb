@@ -1,0 +1,11 @@
+<div class="col-lg-5" style="margin: 0 auto; float:none;">
+  <% if @req.ack == "Success" %>
+    <h1>Order Placed</h1>
+    </br>
+    <p>The tracking number will be emailed to the customer soon.</p>
+  <% else %>
+    <h1>Error Placing Order</h1>
+    <%= @req.errors.short_message %>
+  <% end %>
+  <%= link_to "Back", root_path, class: "btn btn-lg btn-primary" %>
+</div>

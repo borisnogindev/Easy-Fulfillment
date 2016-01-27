@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dev_id: MyString
+  app_id: MyString
+  cert_id: MyString
+  server_url: MyString
+  compat_level: MyString
+  site_id: MyString
+  verb: MyString
+
+two:
+  dev_id: MyString
+  app_id: MyString
+  cert_id: MyString
+  server_url: MyString
+  compat_level: MyString
+  site_id: MyString
+  verb: MyString

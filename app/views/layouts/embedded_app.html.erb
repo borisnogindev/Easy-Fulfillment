@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Shopify Embedded Example App</title>
+
+  <script src="//cdn.shopify.com/s/assets/external/app.js?<%= Time.now.strftime('%Y%m%d%H') %>"></script>
+  <script type="text/javascript">
+    ShopifyApp.init({
+      apiKey: "<%= ShopifyApp.configuration.api_key %>",
+      shopOrigin: '<%= "https://#{ @shop_session.url }" if @shop_session %>'
+    });
+  </script>
+
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  
+</head>
+
+<body>
+
+  <nav>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><%= link_to "Fulfillment", home_index_path %></li>
+    <li role="presentation"><a href="#"></a></li>
+    <li role="presentation"><%= link_to "Products", products_path %></li>
+    <li role="presentation"><a href="#menu-toggle" id="menu-toggle">Analytics</a></li>
+  </ul>
+  </nav>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
+  
+</body>
+<!-- Footer -->
+<footer>
+  <div class="row">
+    <div class="col-lg-12 col-md-offset-5">
+      <p>Copyright &copy; ShopiApps.io 2015</p>
+    </div>
+  </div>
+</footer>
+</html>
+
+

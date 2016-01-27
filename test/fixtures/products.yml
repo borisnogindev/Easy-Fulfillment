@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: MyString
+  created_at: 2015-07-15 13:59:19
+  updated_at: 2015-07-15 13:59:19
+  shopify_id: 1
+  logical_delete: false
+  shop_id: 1
+
+two:
+  name: MyString
+  price: MyString
+  created_at: 2015-07-15 13:59:19
+  updated_at: 2015-07-15 13:59:19
+  shopify_id: 1
+  logical_delete: false
+  shop_id: 1

@@ -1,0 +1,68 @@
+<h3>Orders<h3>
+<% @orders.each do |order| %>
+  <div class="row"> 
+    <h4><a href='https://<%="#{@shop_session.url}/admin/orders/#{order.id}"%>' target="_blank">Order #<%= order.order_number %> </a></h4>
+    <% for item in order.line_items %>
+      <% prdct = Product.find_by_shopify_id(item.product_id) %>
+      <% if prdct.ebay_url != nil %>
+        <% @query = prdct.ebay_url.scan(/([0-9]{12})/).last.first %>
+      <% else %>
+        <%= @query = "Failed regex" %>
+      <% end %>
+      <% @safequery = ERB::Util.url_encode(@query)  # Make the query URL-friendly %>
+      <% @apicall << "&ItemID=#{@safequery}" %>
+      <% @resp = Nokogiri::XML(open(@apicall)) %>
+      <% @apicall.slice!(@apicall[/&ItemID=[0-9]{12}/])%>
+      <% if @resp.at_css('Ack').text == "Success" #Check to see if the request was successful, else print an error %>
+        <% @apierr = "false" %>
+        <% @pic   = @resp.css('PictureURL').text %>
+        <% @link  = @resp.css('ViewItemURLForNaturalSearch').text %>
+        <% @title = @resp.css('Title').text %>
+        <% @price = @resp.css('ConvertedCurrentPrice').text %>
+        <% @qhint = @resp.css('QuantityAvailableHint').text %>
+        <% @qthrs = @resp.css('QuantityThreshold').text %>        
+        <% if @qhint == "" %>
+          <% @qhint = "N/A" %>
+        <% end %>
+      <% else # If the response does not indicate 'Success,' print an error %>    
+        <% @apierr = "No url chosen"%>
+      <% end %>
+
+      <div class="row">
+        <h4>Product: <a href='https://<%="#{@shop_session.url}/admin/orders/#{order.id}"%>' target="_blank">#<%= item.product_id %> </a></h4>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"> 
+          <% if prdct.image != nil %>
+            <img src= <%= prdct.image %> height="128" width="128">
+          <% else %>
+            <h4>No Preview available</h4>
+          <% end %>
+
+          <h4>Status:
+          <% if order.fulfillment_status == "fulfilled" %>
+            Fulfilled</h4>
+          <% elsif order.fulfillment_status == "partial" %>
+            Partially Fulfilled</h4>
+          <% else %>
+            Unfulfilled</h4>
+          <% end %>
+        </div>
+        <div class="col-xs-2">
+          <%= link_to "Approve", new_purchase_event_path(:price => @price, :ebay_id => @safequery), class: "btn btn-lg btn-primary" %>
+        </div>
+        <div class="col-xs-5">
+            <% if @apierr == "false" %>
+            <% # For each SearchResultItem node, build a link and append it to $results %>
+            <%= link_to image_tag(@pic, size: "128x128", :class => "ebay_image", :alt => @title), @link, :target => "_blank" %>
+            <h4><%= link_to @title.first(35)+"...", @link, :target => "_blank" %></h4>
+            <h6><%= "Price: $"+@price+", Quantity Available: "+@qhint+" "+@qthrs %></h6>
+          <% else # If the response does not indicate 'Success,' print an error %>
+            <h4><%= @apierr %></h4>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+  </div>
+<% end %>
